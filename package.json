@@ -1,0 +1,17 @@
+{
+  "name": "babel-plugin-my-import",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "方涣",
+  "license": "ISC",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/preset-react": "^7.0.0-beta.51",
+    "jest": "^23.1.0"
+  }
+}
