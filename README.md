@@ -1,5 +1,6 @@
 # babel-plugins-my-import
 
+> write by Hydrogen, 2018.6
 
 ## 介绍
 
@@ -75,7 +76,7 @@ IR --> VM
 
 > Babel is a JavaScript compiler.
 
-说 **compiler ** 可能不合适，应该说是  **transpiler**
+说 **compiler** 可能不合适，应该说是  **transpiler**
 
 
 
@@ -209,32 +210,32 @@ module.exports = function ({ types: t }) {
 - @babel/types 提供了一些好用的工具函数
 
 ```js
-          // options passed by .babelrc or babel-loader
-          const { opts } = state
+// options passed by .babelrc or babel-loader
+const { opts } = state
 
-          // path.node.source is the library/module name, like 'antd-cloud'.
-          // path.node.specifiers is an array of ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier.
-          const source = path.node.source
-          const specifiers = path.node.specifiers
+// path.node.source is the library/module name, like 'antd-cloud'.
+// path.node.specifiers is an array of ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier.
+const source = path.node.source
+const specifiers = path.node.specifiers
 
-          if (opts.library !== source.value) {
-            return
-          }
+if (opts.library !== source.value) {
+  return
+}
 
-          // transform all ImportSpecifier to importDefaultSpecifier
-          // example: import { has } from 'lodash' --> import has from 'lodash/has'
-          const newImportDecls = specifiers.map((specifier) => {
-            return t.ImportDeclaration(
-                [t.importDefaultSpecifier(specifier.local)],
-                t.StringLiteral(
-                    pathLib.join(source.value, 
-                                 opts.libPath || '', 		    
-                                 specifier.imported.name)
-                    )
-              )
-          })
+// transform all ImportSpecifier to importDefaultSpecifier
+// example: import { has } from 'lodash' --> import has from 'lodash/has'
+const newImportDecls = specifiers.map((specifier) => {
+  return t.ImportDeclaration(
+      [t.importDefaultSpecifier(specifier.local)],
+      t.StringLiteral(
+          pathLib.join(source.value, 
+                        opts.libPath || '', 		    
+                        specifier.imported.name)
+          )
+    )
+})
 
-          path.replaceWithMultiple(newImportDecls)
+path.replaceWithMultiple(newImportDecls)
 ```
 
 
