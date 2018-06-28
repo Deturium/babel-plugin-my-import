@@ -1,10 +1,12 @@
-# babel-plugins-my-import
+# babel-plugin-my-import
 
 > write by Hydrogen, 2018.6
 
 ## 介绍
 
-实现组件库/工具库的按需加载，类似 `babel-plugins-transform-imports` 和 `babel-plugins-import`
+实现组件库/工具库的按需加载，类似 `babel-plugin-transform-imports` 和 `babel-plugin-import`
+
+我不会发布这个插件到 `npm`，实际生产请使用上述两个插件之一
 
 
 ## 使用
@@ -29,10 +31,10 @@ console.log(trans.code)
 
 2. 配置 `.babelrc`
 
-```json
+```js
 {
   "presets": [
-    "@babel/react"
+    "@babel/react" // I assume you are using react
   ],
   "plugins": [
     ["my-import", { "library": "@material-ui/core", "libPath" : "" }]
@@ -43,7 +45,8 @@ console.log(trans.code)
 
 # 如何用写一个 Babel 插件
 
-> by Hydrogen.
+> 自己之前做的一次分享
+
 
 ## 一、编译原理基础
 
@@ -303,22 +306,18 @@ graph TB
 
 
 
-## 三、Babel 的未来
+## 四、Babel 的未来
 
 Babel 6 以来的变化方向：
 
 
-> **平台化**
->
-> **模块化**
+1. 平台化
+2. 模块化
 
 
 > Babel不应该仅仅只是个ES6语法转换器，取而代之的，它应该成为一个平台，它应该包括一组精心设计的工具用于创建下一代JavaScript工具集
 
 
-
->我们认为Babel可以走的更远，
->
->Babel有能力驱动代码压缩、代码规范（Linter）、代码格式化、语法高亮、代码完成工具、 类型检查、codemod工具等一系列功能，
->
->Babel能够让JavaScript社区朝着更好的方向发展
+> Babel可以走的更远，
+> Babel有能力驱动代码压缩、代码规范（Linter）、代码格式化、语法高亮、代码完成工具、 类型检查、codemod工具等一系列功能，
+> Babel能够让JavaScript社区朝着更好的方向发展
