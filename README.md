@@ -45,7 +45,7 @@ console.log(trans.code)
 
 # 如何用写一个 Babel 插件
 
-> 自己之前做的一次分享
+> 自己之前做的一次分享，流程图使用 mermaid
 
 
 ## 一、编译原理基础
@@ -104,7 +104,7 @@ Babel 6 完全插件化
 
 
 
-## 二、写一个 Bable 做 antd-cloud 的按需加载
+## 二、写一个 Babel 插件做 antd-cloud 的按需加载
 
 
 ### 1. 原理
